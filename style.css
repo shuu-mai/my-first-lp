@@ -728,6 +728,99 @@ ul {
 }
 
 /* ==========================================================================
+   Contact
+   ========================================================================== */
+
+.contact {
+  background: var(--color-bg-alt);
+}
+
+.contact-form {
+  max-width: 620px;
+  margin: 48px auto 0;
+  background: var(--color-cream);
+  border-radius: 20px;
+  padding: 48px 44px;
+  border: 1px solid var(--color-line);
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-row label {
+  font-family: var(--font-serif-en);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-brown-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.required {
+  font-family: var(--font-sans-jp);
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--color-cream);
+  background: var(--color-gold);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  font-family: var(--font-sans-jp);
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(185, 138, 74, 0.18);
+}
+
+.form-row.has-error input,
+.form-row.has-error textarea {
+  border-color: #b3453b;
+  box-shadow: 0 0 0 3px rgba(179, 69, 59, 0.12);
+}
+
+.form-error {
+  font-size: 0.82rem;
+  color: #b3453b;
+  min-height: 1.1em;
+  display: none;
+}
+
+.form-row.has-error .form-error {
+  display: block;
+}
+
+.contact-form .btn-block {
+  margin-top: 12px;
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 

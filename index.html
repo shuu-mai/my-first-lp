@@ -27,6 +27,7 @@
         <li><a href="#concept" class="nav-link">コンセプト</a></li>
         <li><a href="#menu" class="nav-link">メニュー</a></li>
         <li><a href="#access" class="nav-link">アクセス</a></li>
+        <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
       </ul>
     </nav>
 
@@ -275,6 +276,39 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section id="contact" class="contact section-pad">
+    <div class="container">
+      <p class="section-eyebrow reveal center">CONTACT</p>
+      <h2 class="section-title reveal center">お問い合わせ</h2>
+      <p class="section-lead reveal center">
+        ご予約やご質問など、お気軽にフォームよりお問い合わせください。
+      </p>
+
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="form-row">
+          <label for="contactName">お名前<span class="required">必須</span></label>
+          <input type="text" id="contactName" name="name" autocomplete="name" placeholder="山田 太郎">
+          <p class="form-error" id="errorName"></p>
+        </div>
+
+        <div class="form-row">
+          <label for="contactEmail">メールアドレス<span class="required">必須</span></label>
+          <input type="email" id="contactEmail" name="email" autocomplete="email" placeholder="example@mail.com">
+          <p class="form-error" id="errorEmail"></p>
+        </div>
+
+        <div class="form-row">
+          <label for="contactMessage">お問い合わせ内容<span class="required">必須</span></label>
+          <textarea id="contactMessage" name="message" rows="6" placeholder="お問い合わせ内容をご記入ください"></textarea>
+          <p class="form-error" id="errorMessage"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">送信する</button>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -288,6 +322,7 @@
       <a href="#concept">コンセプト</a>
       <a href="#menu">メニュー</a>
       <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
     </nav>
     <p class="footer-copy">&copy; 2026 CAFÉ MORI. This is a fictional cafe created for demonstration purposes.</p>
   </div>
