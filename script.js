@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initMenuTabs();
   initBackToTop();
+  initContactForm();
 });
 
 /* --------------------------------------------------------------------------
@@ -169,6 +170,63 @@ function initMenuTabs() {
         panel.classList.toggle('active', panel.id === targetId);
       });
     });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   Contact form validation
+   -------------------------------------------------------------------------- */
+function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  const nameField = document.getElementById('contactName');
+  const emailField = document.getElementById('contactEmail');
+  const messageField = document.getElementById('contactMessage');
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const setError = (field, message) => {
+    const row = field.closest('.form-row');
+    const errorEl = row.querySelector('.form-error');
+    row.classList.toggle('has-error', Boolean(message));
+    errorEl.textContent = message || '';
+  };
+
+  const validateField = (field) => {
+    const value = field.value.trim();
+
+    if (!value) {
+      setError(field, '必須項目です。ご入力ください。');
+      return false;
+    }
+
+    if (field === emailField && !emailPattern.test(value)) {
+      setError(field, 'メールアドレスの形式が正しくありません。');
+      return false;
+    }
+
+    setError(field, '');
+    return true;
+  };
+
+  [nameField, emailField, messageField].forEach((field) => {
+    field.addEventListener('blur', () => validateField(field));
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const isNameValid = validateField(nameField);
+    const isEmailValid = validateField(emailField);
+    const isMessageValid = validateField(messageField);
+
+    if (!isNameValid || !isEmailValid || !isMessageValid) {
+      return;
+    }
+
+    alert('送信しました');
+    form.reset();
+    [nameField, emailField, messageField].forEach((field) => setError(field, ''));
   });
 }
 
